@@ -1,0 +1,4 @@
+name: ArmorSK
+main: com.ArmorSk.Main
+version: 1.0
+depend: [Skript]
