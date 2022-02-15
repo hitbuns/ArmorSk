@@ -14,4 +14,12 @@ public class Utils {
         return itemStack == null || itemStack.getType().equals(Material.AIR);
     }
 
+    public static double RNG(int min,int max) {
+        return Math.random()*(max-min)+min;
+    }
+
+    public static int RNG_INT(int min,int max) {
+        return (int) Math.round(RNG(min, max));
+    }
+
 }

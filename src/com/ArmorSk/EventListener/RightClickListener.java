@@ -2,6 +2,7 @@ package com.ArmorSk.EventListener;
 
 import com.ArmorSk.ArmorHandlers.ArmorType;
 import com.ArmorSk.Events.ArmorEquipEvent;
+import com.ArmorSk.Utilities.BukkitEventCaller;
 import com.ArmorSk.Utilities.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -17,9 +18,7 @@ public class RightClickListener implements Listener {
         for (ArmorType armorType : ArmorType.values()) {
             if (armorType.getEnchantmentTarget().includes(e.getItem()) &&
                     Utils.isNullorAir(e.getPlayer().getInventory().getItem(armorType.getSlot()))) {
-                ArmorEquipEvent armorEquipEvent = new ArmorEquipEvent(e.getPlayer(),e.getItem());
-                Bukkit.getPluginManager().callEvent(armorEquipEvent);
-                e.setCancelled(armorEquipEvent.isCancelled());
+                e.setCancelled(BukkitEventCaller.callEvent(new ArmorEquipEvent(e.getPlayer(),e.getItem())));
                 break;
             }
         }

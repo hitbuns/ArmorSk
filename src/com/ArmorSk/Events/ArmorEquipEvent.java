@@ -5,9 +5,6 @@ import org.bukkit.inventory.ItemStack;
 
 public class ArmorEquipEvent extends ArmorEvent {
 
-    static {
-    }
-
     private final ItemStack itemStack;
 
     public ArmorEquipEvent(String name, LivingEntity livingEntity, ItemStack equippedItem) {
